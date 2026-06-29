@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonlit</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+
+    <!--Star field  Container JS fills this-->
+
+    <div id="stars-container"></div>
+
+    <!-- Shooting Star - JS controls the animation-->
+    <div id="shooting-star"></div>
+
+
+
+
+    <section id="hero">
+
+        <!-- logo -->
+
+        <div class="hero-left">
+            <h1 class="logo">Moonlit</h1>
+        </div>
+
+        <div class="hero-center">
+            <div class="moon-wrapper">
+
+                <svg id="hero-moon" viewBox="0 0 280 280" width="280" height="280"></svg>
+            </div>
+
+            <div class="phase-data">
+                <p id="phase-name" class="phase-name">-</p>
+                <p id="cycle-progress" class="data-line">Day — of 29.53 · —% through cycle</p>
+                <p id="phase-description" class="data-line description">-</p>
+                <p class="data-line">
+                    <span id="illumination">-</span> illuminated / <span id="degrees">-</span>°
+                    .
+                    <span id="zodiac-sign" class="zodiac">-</span>
+                </p>
+                <p id="today-date" class="data-line">-</p>
+            </div>
+        </div>
+
+        <!-- Clock -->
+        <div class="hero-right">
+            <svg id="clock" viewBox="0 0 120 120" width="120" height="120"></svg>
+            <p class="data-line"> Time: <span id="clock-time">-:-:-</span></p>
+            <p class="data-line"> Date: <span id="clock-date">--,-</span></p>
+
+
+
+        </div>
+
+    </section>
+
+    <!-- 2nd section-->
+
+    <section id="phase-timeline" class="fade-section">
+        <h2 class="section-title"> Phase Timeline </h2>
+        <div id="timeline-strip">
+            <!-- js 5 card here-->
+        </div>
+    </section>
+
+    <!-- 3rd section: phase calende-->
+
+    <section id="moon-calendar" class="fade-section">
+        <h2 class="section-title">Moon Calendar</h2>
+
+
+        <!-- Month/year controls-->
+        <div class="calendar-controls">
+            <select id="cal-month">
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
+            </select>
+            <select id="cal-year"></select>
+
+            <button id="cal-go">Go →</button>
+
+        </div>
+
+        <!--day of weeek heard row-->
+
+        <div class="calendar-header">
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+            <span>Sun</span>
+        </div>
+        <div id="calendar-grid"></div>
+
+    </section>
+
+    <!-- Section 4: Phase Guide -->
+    <section id="phase-guide" class="fade-section">
+        <h2 class="section-title">Moon Phase Guide</h2>
+
+        <div class="phase-guide-wrap">
+
+            <!-- The circular diagram -->
+            <div class="phase-ring-container">
+
+                <!-- Central Earth -->
+                <div class="earth-center">
+                    <svg id="earth-svg" viewBox="0 0 60 60" width="60" height="60"></svg>
+                </div>
+
+                <!-- 8 moon positions — JS will fill the SVGs and highlight current -->
+                <div class="phase-node" data-phase-index="0">
+                    <svg class="guide-moon" viewBox="0 0 64 64" width="64" height="64"></svg>
+                    <span class="phase-node-label">New Moon</span>
+                </div>
+
+                <div class="phase-node" data-phase-index="1">
+                    <svg class="guide-moon" viewBox="0 0 64 64" width="64" height="64"></svg>
+                    <span class="phase-node-label">Waxing Crescent</span>
+                </div>
+
+                <div class="phase-node" data-phase-index="2">
+                    <svg class="guide-moon" viewBox="0 0 64 64" width="64" height="64"></svg>
+                    <span class="phase-node-label">First Quarter</span>
+                </div>
+
+                <div class="phase-node" data-phase-index="3">
+                    <svg class="guide-moon" viewBox="0 0 64 64" width="64" height="64"></svg>
+                    <span class="phase-node-label">Waxing Gibbous</span>
+                </div>
+
+                <div class="phase-node" data-phase-index="4">
+                    <svg class="guide-moon" viewBox="0 0 64 64" width="64" height="64"></svg>
+                    <span class="phase-node-label">Full Moon</span>
+                </div>
+
+                <div class="phase-node" data-phase-index="5">
+                    <svg class="guide-moon" viewBox="0 0 64 64" width="64" height="64"></svg>
+                    <span class="phase-node-label">Waning Gibbous</span>
+                </div>
+
+                <div class="phase-node" data-phase-index="6">
+                    <svg class="guide-moon" viewBox="0 0 64 64" width="64" height="64"></svg>
+                    <span class="phase-node-label">Last Quarter</span>
+                </div>
+
+                <div class="phase-node" data-phase-index="7">
+                    <svg class="guide-moon" viewBox="0 0 64 64" width="64" height="64"></svg>
+                    <span class="phase-node-label">Waning Crescent</span>
+                </div>
+
+            </div>
+
+            <!-- Sunlight arrow — sits to the right of the diagram -->
+            <div class="sunlight-arrow">
+                <span class="sunlight-label">SUNLIGHT</span>
+                <div class="sunlight-line">
+                    <div class="arrow-head-left">&#9664;</div>
+                    <div class="arrow-shaft"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Section 5: About + Contact -->
+    <section id="about" class="fade-section">
+
+        <div class="about-wrap">
+
+            <!-- Left: what the site is -->
+            <div class="about-left">
+                <h2 class="section-title" style="text-align:left;">About Moonlit</h2>
+                <p class="about-text">
+                    Moonlit tracks the real-time phase of the moon based on your local date and time.
+                    Every phase you see, the shadow angle, the illumination percentage, the crescent
+                    direction, is calculated mathematically using the lunar synodic cycle of 29.53 days,
+                    not drawn from a photo library.
+                </p>
+                <p class="about-text">
+                    The moon's position in the zodiac is approximated from its ecliptic longitude,
+                    updated daily. Named full moons follow traditional folklore names tied to the
+                    month and season.
+                </p>
+                <p class="about-text about-footer-note">
+                    Phase calculated from today's date using the lunar synodic cycle &middot; 29.53 days
+                </p>
+            </div>
+
+            <!-- Divider -->
+            <div class="about-divider"></div>
+
+            <!-- Right: contact -->
+            <div class="about-right">
+                <h2 class="section-title" style="text-align:left;">Contact</h2>
+                <p class="about-text">Built by <span class="contact-name">Lisa</span></p>
+                <p class="about-text">
+                    <a class="contact-link" href="mailto:you@email.com">jannatenurlisa@email.com</a>
+                </p>
+                <p class="about-text">
+                    <a class="contact-link" href="https://github.com/jannatenurlisa" target="_blank">
+                        GitHub
+                    </a>
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Page footer -->
+        <div class="site-footer">
+            <p>&copy; 2026 Moonlit &middot; All calculations are approximations</p>
+        </div>
+
+    </section>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
