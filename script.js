@@ -680,20 +680,24 @@ function buildPhaseGuide() {
 
     drawEarth(document.getElementById('earth-svg'));
 
-    const containerSize = 420;
-    const center = containerSize / 2;
-    const radius = 155;
+    const container = document.querySelector('.phase-ring-container');
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
+    const center = containerWidth / 2;
+    const radius = containerWidth * 0.37;
+
+    const nodeSize = parseFloat(getComputedStyle(document.querySelector('.phase-node')).width);
 
     document.querySelectorAll('.phase-node').forEach((node, i) => {
         const rad = (anglesDeg[i] * Math.PI) / 180;
         const x = center + radius * Math.cos(rad);
-        const y = center + radius * Math.sin(rad);
+        const y = (containerHeight / 2) + radius * Math.sin(rad);
 
-        node.style.left = (x - 32) + 'px';
-        node.style.top = (y - 32) + 'px';
+        node.style.left = (x - nodeSize / 2) + 'px';
+        node.style.top = (y - nodeSize / 2) + 'px';
 
         const svg = node.querySelector('.guide-moon');
-        renderMoon(svg, guideAges[i], 64);
+        renderMoon(svg, guideAges[i], nodeSize);
 
         if (phaseNames[i] === todayPhase) {
             node.classList.add('current-phase');
@@ -751,3 +755,4 @@ renderTimelineSection(new Date());
 initScrollFade();
 initCalendar();
 buildPhaseGuide();
+window.addEventListener('resize', buildPhaseGuide);

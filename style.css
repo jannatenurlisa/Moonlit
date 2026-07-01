@@ -20,6 +20,19 @@
     box-sizing: border-box;
 }
 
+/* ── MOBILE SAFETY NET — prevents SVGs/images from breaking layout ── */
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 /* ── 3. BODY — the fixed deep space background ── */
 body {
     background-color: #080f1f;
@@ -291,6 +304,11 @@ body {
         justify-content: center;
         text-align: center;
         gap: 10px;
+    }
+
+    .moon-wrapper {
+        width: min(280px, 75vw);
+        height: min(280px, 75vw);
     }
 }
 
@@ -585,8 +603,9 @@ body {
 /* The circular container — everything rotates inside this */
 .phase-ring-container {
     position: relative;
-    width: 420px;
-    height: 460px;
+    width: clamp(280px, 80vw, 420px);
+    height: clamp(310px, 88vw, 460px);
+    margin: 0 auto;
 }
 
 /* Earth sits dead center */
@@ -601,8 +620,8 @@ body {
 /* Each moon node: rotated outward from center */
 .phase-node {
     position: absolute;
-    width: 64px;
-    height: 64px;
+    width: clamp(44px, 12vw, 64px);
+    height: clamp(44px, 12vw, 64px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -687,28 +706,7 @@ body {
     margin-right: -2px;
 }
 
-/* Responsive: shrink the ring on small screens */
-@media (max-width: 600px) {
-    .phase-ring-container {
-        width: 100%;
-        height: auto;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-        position: static;
-    }
 
-    .phase-node {
-        position: static;
-        transform: none;
-        width: auto;
-        height: auto;
-    }
-
-    .earth-center {
-        display: none;
-    }
-}
 
 .phase-guide-wrap {
     flex-direction: column;
