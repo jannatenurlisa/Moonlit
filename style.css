@@ -275,6 +275,12 @@ body {
     .hero-right {
         align-items: center;
         text-align: center;
+        width: 100%;
+    }
+
+    #clock {
+        width: 80px;
+        height: 80px;
     }
 
     .hero-center {
@@ -704,6 +710,16 @@ body {
     }
 }
 
+.phase-guide-wrap {
+    flex-direction: column;
+    align-items: center;
+}
+
+.sunlight-arrow {
+    flex-direction: row;
+    gap: 16px;
+}
+
 /* ── ABOUT + CONTACT ── */
 #about {
     padding: 80px 80px 40px;
@@ -737,6 +753,7 @@ body {
     font-size: 0.92rem;
     line-height: 1.75;
     margin-bottom: 16px;
+    text-align: justify;
 }
 
 .about-footer-note {
