@@ -273,8 +273,8 @@ body {
     }
 
     .hero-right {
-        align-items: flex-start;
-        align-items: left;
+        align-items: center;
+        text-align: center;
     }
 
     .hero-center {
@@ -684,12 +684,23 @@ body {
 /* Responsive: shrink the ring on small screens */
 @media (max-width: 600px) {
     .phase-ring-container {
-        width: 300px;
-        height: 300px;
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        position: static;
     }
 
     .phase-node {
-        transform: rotate(var(--angle)) translateX(118px);
+        position: static;
+        transform: none;
+        width: auto;
+        height: auto;
+    }
+
+    .earth-center {
+        display: none;
     }
 }
 
